@@ -1,0 +1,91 @@
+地址：https://www.cnblogs.com/chenjw-note/p/5887908.html
+
+
+
+# 远程连接服务器上的MySQL。
+
+Navicat软件连接数据库报错：2003-can't connect to MYSQL serve
+
+## 工具/原料
+
+ 
+
+- crt、navicat、Linux系统、MySQL。
+
+## 方法/步骤
+
+ 
+
+1.  
+
+   远程连接上Linux系统，确保Linux系统已经安装上了MySQL数据库。登陆数据库。mysql -uroot -p（密码）。
+
+   ​
+
+    
+
+2.  
+
+   创建用户用来远程连接
+
+   GRANT ALL PRIVILEGES ON *.* TO 'itoffice'@'%' IDENTIFIED BY 'itoffice' WITH GRANT OPTION;
+
+   （第一个itoffice表示用户名，%表示所有的电脑都可以连接，也可以设置某个ip地址运行连接，第二个itoffice表示密码）。
+
+   [![Linux系统MySQL开启远程连接](http://h.hiphotos.baidu.com/exp/w=500/sign=be6af638a444ad342ebf8787e0a30c08/b58f8c5494eef01f15604c10e5fe9925bd317dea.jpg)](http://jingyan.baidu.com/album/363872ec3263236e4ba16f07.html?picindex=2)
+
+3.  
+
+   执行 flush privileges;命令立即生效
+
+   [![Linux系统MySQL开启远程连接](http://d.hiphotos.baidu.com/exp/w=500/sign=473ce571a1c27d1ea5263bc42bd4adaf/f636afc379310a55201a8921b24543a98226102c.jpg)](http://jingyan.baidu.com/album/363872ec3263236e4ba16f07.html?picindex=3)
+
+4.  
+
+   查询数据库的用户（看到如下内容表示创建新用户成功了）
+
+    SELECT DISTINCT CONCAT('User: ''',user,'''@''',host,''';') AS query FROM mysql.user;
+
+   [![Linux系统MySQL开启远程连接](http://c.hiphotos.baidu.com/exp/w=500/sign=80e2b34709f431adbcd243397b37ac0f/2cf5e0fe9925bc316e35574d5bdf8db1ca1370fe.jpg)](http://jingyan.baidu.com/album/363872ec3263236e4ba16f07.html?picindex=4)
+
+5.  
+
+   使用exit命令退出MySQL
+
+   然后打开vim  /etc/mysql/my.cnf
+
+   将bind-address    = 127.0.0.1
+
+    设置成bind-address    = 0.0.0.0（设备地址）
+
+   重新启动（命令如下）：
+
+   /etc/init.d/mysql stop
+
+   /etc/init.d/mysql start
+
+   [![Linux系统MySQL开启远程连接](http://f.hiphotos.baidu.com/exp/w=500/sign=219d66de5eb5c9ea62f303e3e538b622/3801213fb80e7bec41e153342a2eb9389b506b2f.jpg)](http://jingyan.baidu.com/album/363872ec3263236e4ba16f07.html?picindex=5)
+
+6.  
+
+   查看端口号
+
+    show global variables like 'port';  
+
+   [![Linux系统MySQL开启远程连接](http://a.hiphotos.baidu.com/exp/w=500/sign=feca0e85093387449cc52f7c610dd937/b3b7d0a20cf431adc30113ec4e36acaf2fdd9817.jpg)](http://jingyan.baidu.com/album/363872ec3263236e4ba16f07.html?picindex=6)
+
+7.  
+
+   设置navicat连接。
+
+   [![Linux系统MySQL开启远程连接](http://a.hiphotos.baidu.com/exp/w=500/sign=d65ccf36f81f4134e037057e151e95c1/80cb39dbb6fd5266a0546ec1ae18972bd50736e3.jpg)](http://jingyan.baidu.com/album/363872ec3263236e4ba16f07.html?picindex=7)
+
+8.  
+
+   点击连接测试看到如下内容表示成功。
+
+   [![Linux系统MySQL开启远程连接](http://h.hiphotos.baidu.com/exp/w=500/sign=e01d9039d400baa1ba2c47bb7711b9b1/d833c895d143ad4bae331b1587025aafa50f06c1.jpg)](http://jingyan.baidu.com/album/363872ec3263236e4ba16f07.html?picindex=8)
+
+    
+
+   http://jingyan.baidu.com/article/363872ec3263236e4ba16f07.html

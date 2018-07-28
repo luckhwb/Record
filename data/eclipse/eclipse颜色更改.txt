@@ -1,0 +1,43 @@
+颜色更改教程：https://www.cnblogs.com/t658/p/6710705.html
+
+
+
+# 			[eclipse边款颜色和护眼编辑框设置](https://www.cnblogs.com/t658/p/6710705.html)		
+
+ 
+
+一、边框颜色设置
+
+步骤：Window—>Preferences—>General—>Apperance：如图：在Theme选项中还几个样式可以选择，可以自己的爱好来设置。
+
+![img](https://images2015.cnblogs.com/blog/1126339/201704/1126339-20170414194638205-633014942.png)
+
+如果选择Dark：效果是这样的：
+
+![img](https://images2015.cnblogs.com/blog/1126339/201704/1126339-20170414195232486-2138373474.png)
+
+二、编辑框内样式的设置
+
+第一种方法：自定义（背景和字体设置）
+
+背景的步骤：Window—>Preferences—>General—>Editors—>Text Editors—>Appearance color options—>Background Color（可以选择自己需要的颜色），
+
+这样设置之后还需要下一步的设置：设置Current line highlight的颜色和Background Color的颜色一样。
+
+字体颜色：Window—>Preferences—>Java—>Editor—>Syntax Coloring—>Element—>Java：Java下面有很多java结构字体的设置。
+
+第二种方法：最好用的方法
+
+1、登录：http://www.eclipsecolorthemes.org/
+
+![img](https://images2015.cnblogs.com/blog/1126339/201704/1126339-20170414200917580-2133985263.png)
+
+登录进去后里面有很多样式可以下载。选择一个你需要的样式，进去之后会有两个下载，我们下载文件是EPF：比如：
+
+![img](https://images2015.cnblogs.com/blog/1126339/201704/1126339-20170414201226392-683741935.png)
+
+下载第二个：
+
+2、如何导入到eclipse里面：
+
+步骤：File—>import—>General—>Preferences：找到你下载EPF的路径，—>Finish就可以了。
