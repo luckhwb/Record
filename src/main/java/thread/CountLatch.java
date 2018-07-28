@@ -13,7 +13,7 @@ import static java.util.concurrent.Executors.newCachedThreadPool;
 /**
  * Created by Hua wb on 2018/7/23.
  */
-public class CountExample {
+public class CountLatch {
     // 请求总数
     public static int clientTotal = 1000;
 
@@ -34,7 +34,7 @@ public class CountExample {
         //信号量，此处用于控制并发的线程数
         final Semaphore semaphore = new Semaphore(threadTotal);
         //闭锁，可实现计数器递减
-        final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
+        final java.util.concurrent.CountDownLatch countDownLatch = new java.util.concurrent.CountDownLatch(clientTotal);
         for (int i = 0; i < clientTotal ; i++) {
             int finalI = i;
             executorService.execute(() -> {
